@@ -28,7 +28,7 @@ const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
 Tab.propTypes = {
   tab: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired, // Adicionando validação para a propriedade icon
+    icon: PropTypes.string, // Fazendo a propriedade icon opcional
   }).isRequired,
   isFilterTab: PropTypes.bool.isRequired,
   isActiveTab: PropTypes.bool.isRequired,
