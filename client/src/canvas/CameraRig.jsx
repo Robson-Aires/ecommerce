@@ -16,7 +16,7 @@ const CameraRig = ({ children }) => {
     const isMobile = window.innerWidth <= 600;
 
     // define a posição inicial do modelo
-    let targetPosition = [-0.4, 0.5, 2];
+    let targetPosition = [-0.4, 0, 2];
     if(snap.intro) {
       if(isBreakpoint) targetPosition = [0, 0, 2];
       if(isMobile) targetPosition = [0, 0.2, 2.5];
