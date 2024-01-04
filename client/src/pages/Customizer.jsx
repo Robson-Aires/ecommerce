@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
@@ -48,11 +48,13 @@ const Customizer = () => {
   }
 
   const handleSubmit = async (type) => {
-    if(!prompt) return alert("Please enter a prompt");
-
+    if (!prompt) {
+      return alert("Please enter a prompt");
+    }
+  
     try {
       setGeneratingImg(true);
-
+  
       const response = await fetch('http://localhost:8080/api/v1/dalle', {
         method: 'POST',
         headers: {
@@ -61,18 +63,23 @@ const Customizer = () => {
         body: JSON.stringify({
           prompt,
         })
-      })
-
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Something went wrong");
+      }
+  
       const data = await response.json();
-
-      handleDecals(type, `data:image/png;base64,${data.photo}`)
+  
+      handleDecals(type, `data:image/png;base64,${data.photo}`);
     } catch (error) {
-      alert(error)
+      alert(error.message);
     } finally {
       setGeneratingImg(false);
       setActiveEditorTab("");
     }
-  }
+  };
 
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
@@ -127,14 +134,15 @@ const Customizer = () => {
           >
             <div className="flex items-center min-h-screen">
               <div className="editortabs-container tabs">
-                {EditorTabs.map((tab) => (
-                  <Tab 
-                    key={tab.name}
-                    tab={tab}
-                    handleClick={() => setActiveEditorTab(tab.name)}
-                  />
-                ))}
-
+              {EditorTabs.map((tab) => (
+              <Tab 
+                key={tab.name}
+                tab={tab}
+                isFilterTab={false}  // Defina o valor apropriado
+                isActiveTab={activeEditorTab === tab.name}  // Defina o valor apropriado
+                handleClick={() => setActiveEditorTab(tab.name)}
+              />
+            ))}
                 {generateTabContent()}
               </div>
             </div>
