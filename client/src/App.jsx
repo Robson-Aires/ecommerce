@@ -6,6 +6,7 @@ import Products from './pages/Products/Products';
 import AOS from "aos";
 import "aos/dist/aos.css"
 import TopProducts from './pages/TopProducts/TopProducts';
+import Banner from './pages/Banner/Banner'
 
 const App = () => {
   
@@ -26,6 +27,7 @@ const App = () => {
     </main>
     <Products />
     <TopProducts />
+    <Banner />
     </>
   )
 }
