@@ -1,4 +1,8 @@
-import img1 from './img/gojo.webp';
+import img1 from './img/Women.png'
+import img2 from './img/Women2.jpg'
+import img3 from './img/Women3.jpg'
+import img4 from './img/Women4.jpg'
+
 import { FaStar } from "react-icons/fa6";
 
 const ProductData = [
@@ -12,7 +16,7 @@ const ProductData = [
     },
     {
         id: 2,
-        img: img1,
+        img: img2,
         title: "Women Ethnic",
         rating: 5.0,
         color: "red",
@@ -20,7 +24,7 @@ const ProductData = [
     },
     {
         id: 3,
-        img: img1,
+        img: img3,
         title: "Women Ethnic",
         rating: 5.0,
         color: "red",
@@ -28,7 +32,7 @@ const ProductData = [
     },
     {
         id: 4,
-        img: img1,
+        img: img4,
         title: "Women Ethnic",
         rating: 5.0,
         color: "white",
@@ -52,9 +56,9 @@ const Products = () => {
         <div className="container">
             {/* Header section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
-        <p className="text-sm text-orange-300">Top Selling Products for you</p>
-            <h1 className="text-3xl font-bold">Products</h1>
-        <p className="text-xs text-gray-400">LOrem ipsum ksdfbsjfbgfvb, afserfrae
+        <p data-aos="fade-up" className="text-sm text-orange-300">Top Selling Products for you</p>
+            <h1 data-aos="fade-up" className="text-3xl font-bold">Products</h1>
+        <p data-aos="fade-up" className="text-xs text-gray-400">LOrem ipsum ksdfbsjfbgfvb, afserfrae
             aferfaefaerffaergergergargeargerger
             aegerger,
         </p>
@@ -67,7 +71,10 @@ const Products = () => {
                 >
                     {/*  card section */}
                     {ProductData.map((data) => (
-                        <div key={data.id} className='space-y-3'>
+                        <div
+                        data-aos="fade-up"
+                        data-aos-delay={data.aosDelay}
+                         key={data.id} className='space-y-3'>
                             <img
                             src={data.img}
                             className='h-[220px] w-[150px]
