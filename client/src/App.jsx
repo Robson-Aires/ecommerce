@@ -7,6 +7,8 @@ import AOS from "aos";
 import "aos/dist/aos.css"
 import TopProducts from './pages/TopProducts/TopProducts';
 import Banner from './pages/Banner/Banner'
+import Subscribe from './pages/Subscribe/Subscribe'
+
 
 const App = () => {
   
@@ -28,6 +30,7 @@ const App = () => {
     <Products />
     <TopProducts />
     <Banner />
+    <Subscribe />
     </>
   )
 }
